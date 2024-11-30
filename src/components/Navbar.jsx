@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { login, logout, onUserStateChange } from '../libs/firebase/auth';
+import React from 'react';
+import { Link } from 'react-router';
 import User from './User';
 import CartStatus from './CartStatus';
+import { useAuthContext } from '../contexts/AuthContext';
 
 export default function Navbar() {
-	const [user, setUser] = useState();
+	const { user, login, logout } = useAuthContext();
 
-	useEffect(() => {
-		onUserStateChange((user) => {
-			setUser(user);
-		});
-	}, []);
 	return (
 		<nav>
 			<Link className='logo' to='/'>
@@ -21,7 +16,7 @@ export default function Navbar() {
 				/>
 			</Link>
 			<menu>
-				<Link className='button' to='/products'>
+				<Link className='button' to='/products/all'>
 					All Products
 				</Link>
 
