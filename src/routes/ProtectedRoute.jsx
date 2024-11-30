@@ -9,9 +9,9 @@ export default function ProtectedRoute({ children, requireAdmin }) {
 	if (loading) {
 		return <LoadingPage />;
 	}
-	if (user) {
-		console.log(user, user.isAdmin);
-	}
+	// if (user) {
+	// 	console.log(user, user.isAdmin);
+	// }
 	if (!user || (requireAdmin && !user.isAdmin)) {
 		console.log('there is no user or user is not admin');
 		return <Navigate to='/' replace={true} />;
