@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './styles/general.css';
+import '/src/styles/style-addnew.css';
+import '/src/styles/style-products-all.css';
+
 import { RouterProvider, createBrowserRouter } from 'react-router';
-import App from './app';
+import App from './App';
 import Root from './routes/Root';
 import NotFoundPage from './pages/NotFoundPage';
 import AllProductsPage from './pages/products/AllProductsPage';

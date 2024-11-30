@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '/src/styles/style-addnew.css';
 import {
 	addNewProduct,
 	uploadFiles,
