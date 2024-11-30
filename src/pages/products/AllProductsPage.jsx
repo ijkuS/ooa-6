@@ -9,7 +9,7 @@ export default function AllProductsPage() {
 	useEffect(() => {
 		getProduct()
 			.then((data) => {
-				console.log(data);
+				//console.log(data);
 				setProducts(data);
 				setIsPending(false);
 			})

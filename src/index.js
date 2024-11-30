@@ -13,6 +13,7 @@ import CartPage from './pages/CartPage';
 import AdminAddnew from './pages/admin/AdminAddnew';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ProtectedRoute from './routes/ProtectedRoute';
+import ProductDetailPage from './pages/products/ProductDetailPage';
 
 const router = createBrowserRouter([
 	{
@@ -22,6 +23,8 @@ const router = createBrowserRouter([
 		children: [
 			{ index: true, element: <App /> },
 			{ path: '/products/all', element: <AllProductsPage /> },
+			{ path: '/products/:id', element: <ProductDetailPage /> },
+
 			{
 				path: '/cart',
 				element: (
@@ -54,10 +57,5 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<RouterProvider router={router} />
-		{/* <BrowserRouter>
-			<Routes>
-				<Route path='/' element={<App />} />
-			</Routes>
-		</BrowserRouter> */}
 	</React.StrictMode>
 );
