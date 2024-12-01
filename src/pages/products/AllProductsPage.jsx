@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../../components/ProductCard';
 import { getProduct } from '../../libs/firebase/product-related';
+import LoadingPage from '../LoadingPage';
 
 export default function AllProductsPage() {
 	const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ export default function AllProductsPage() {
 			});
 	}, []);
 	if (isPending) {
-		return <div>Loading...</div>;
+		return <LoadingPage />;
 	}
 	if (isError) {
 		return <div>Error loading products</div>;

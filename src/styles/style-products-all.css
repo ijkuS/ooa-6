@@ -20,6 +20,7 @@
 	overflow: hidden;
 }
 .all-products__page-container ul li:hover {
+	cursor: pointer;
 	opacity: 90%;
 	transition: 0.1s ease-in-out;
 }
