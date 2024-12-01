@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router';
 import LoadingPage from '../LoadingPage';
+import { useAuthContext } from '../../contexts/AuthContext';
+import { addOrUpdateCart } from '../../libs/firebase/cart-related';
 
 export default function ProductDetailPage({ product }) {
+	const { uid } = useAuthContext();
 	// const [isPending, setIsPending] = useState(true);
 	// const [isError, setIsError] = useState(null);
-	const [selected, setSelected] = useState();
-	const [success, setSuccess] = useState(false);
 
 	const {
 		state: {
@@ -22,6 +23,8 @@ export default function ProductDetailPage({ product }) {
 			},
 		},
 	} = useLocation(); // from ProductCard's useNavigate()
+	const [selected, setSelected] = useState();
+	const [success, setSuccess] = useState(false);
 
 	const handleSelect = (e) => {
 		const value = e.target.value;
@@ -45,7 +48,7 @@ export default function ProductDetailPage({ product }) {
 			options: selected,
 			quantity: 1,
 		};
-		//addOrUpdateCart(user.uid, product);
+		addOrUpdateCart(uid, product);
 	};
 
 	return (

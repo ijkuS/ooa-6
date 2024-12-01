@@ -1,0 +1,39 @@
+import { ref as databaseRef, get, remove, set } from 'firebase/database';
+import { firebaseRTDatabase, firebaseStorage } from './config';
+import { ref } from 'firebase/storage';
+
+export async function getCart(userId) {
+	const dbRef = databaseRef(firebaseRTDatabase, `carts/${userId}`);
+	try {
+		const snapshot = await get(dbRef);
+		if (snapshot.exists()) {
+			const items = snapshot.val();
+			const modifiedItems = Object.values(items);
+			console.log('🍎🍎 modifiedItems:', modifiedItems);
+
+			return modifiedItems;
+		} else {
+			console.log('No data available from getCart');
+			return [];
+		}
+	} catch (error) {
+		console.error('Error getting cart', error);
+		return [];
+	}
+}
+
+export async function addOrUpdateCart(userId, product) {
+	const dbRef = databaseRef(
+		firebaseRTDatabase,
+		`carts/${userId}/${product.id}`
+	);
+	return set(dbRef, product);
+}
+
+export async function removeFromCart(userId, productId) {
+	const dbRef = databaseRef(
+		firebaseRTDatabase,
+		`carts/${userId}/${productId}`
+	);
+	return remove(dbRef);
+}
