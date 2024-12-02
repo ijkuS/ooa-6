@@ -2,24 +2,18 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from '../../components/ProductCard';
 import { getProduct } from '../../libs/firebase/product-related';
 import LoadingPage from '../LoadingPage';
+import { useQuery } from '@tanstack/react-query';
 
 export default function AllProductsPage() {
-	const [products, setProducts] = useState([]);
-	const [isPending, setIsPending] = useState(true);
-	const [isError, setIsError] = useState(null);
-	useEffect(() => {
-		getProduct()
-			.then((data) => {
-				//console.log(data);
-				setProducts(data);
-				setIsPending(false);
-			})
-			.catch((err) => {
-				console.error('Error fetching products:', err);
-				setIsError(err);
-				setIsPending(false);
-			});
-	}, []);
+	const {
+		isPending,
+		isError,
+		data: products,
+	} = useQuery({
+		queryKey: ['products'],
+		queryFn: getProduct,
+	});
+
 	if (isPending) {
 		return <LoadingPage />;
 	}
