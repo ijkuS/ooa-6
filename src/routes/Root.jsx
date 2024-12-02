@@ -12,9 +12,11 @@ export default function Root() {
 		<QueryClientProvider client={queryClient}>
 			<AuthContextProvider>
 				<main>
-					<Navbar />
-					<Outlet />
-					<Footer />
+					<div className='main-wrapper'>
+						<Navbar />
+						<Outlet />
+						<Footer />
+					</div>
 				</main>
 			</AuthContextProvider>
 		</QueryClientProvider>
