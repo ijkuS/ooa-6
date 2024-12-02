@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ProductCard from '../../components/ProductCard';
 import { getProduct } from '../../libs/firebase/product-related';
 import LoadingPage from '../LoadingPage';

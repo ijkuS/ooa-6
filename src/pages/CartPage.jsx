@@ -4,12 +4,22 @@ import { getCart } from '../libs/firebase/cart-related';
 import CartItem from '../components/CartItem';
 import CartSummaryCard from '../components/CartSummaryCard';
 import { GENERAL_DELIVERY_FEE } from '../constants/shop-constants';
+import { useQuery } from '@tanstack/react-query';
 
 export default function CartPage() {
 	const { user, uid } = useAuthContext();
-	const [cartItems, setCartItems] = useState(null);
-	const [isPending, setIsPending] = useState(true);
-	const [isError, setIsError] = useState(false);
+	const {
+		isPending,
+		isError,
+		data: cartItems,
+	} = useQuery({
+		queryKey: ['carts', uid],
+		queryFn: async () => {
+			const data = await getCart(uid);
+			return data;
+		},
+	});
+
 	const cartItemPrice =
 		cartItems &&
 		cartItems.reduce(
@@ -17,22 +27,6 @@ export default function CartPage() {
 				prev + parseInt(current.price) * current.quantity,
 			0
 		);
-
-	useEffect(() => {
-		if (!uid) return;
-		setIsPending(true);
-		setIsError(false);
-		getCart(uid)
-			.then((data) => {
-				setCartItems(data); // update cart items
-			})
-			.catch(() => {
-				setIsError(true);
-			})
-			.finally(() => {
-				setIsPending(false);
-			});
-	}, [uid]); // re-run the effect if 'uid' changes
 
 	return (
 		<section className='cart__page-container'>
