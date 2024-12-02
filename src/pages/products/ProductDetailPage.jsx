@@ -6,8 +6,6 @@ import { addOrUpdateCart } from '../../libs/firebase/cart-related';
 
 export default function ProductDetailPage({ product }) {
 	const { uid } = useAuthContext();
-	// const [isPending, setIsPending] = useState(true);
-	// const [isError, setIsError] = useState(null);
 
 	const {
 		state: {
@@ -24,7 +22,6 @@ export default function ProductDetailPage({ product }) {
 		},
 	} = useLocation(); // from ProductCard's useNavigate()
 	const [selected, setSelected] = useState();
-	const [success, setSuccess] = useState(false);
 
 	const handleSelect = (e) => {
 		const value = e.target.value;

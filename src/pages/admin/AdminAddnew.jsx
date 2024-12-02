@@ -175,6 +175,11 @@ export default function AdminAddnew() {
 						disabled={isUploading}>
 						{isUploading ? 'Uploading...' : 'Click to Upload'}
 					</button>
+					{success && (
+						<p className='alert success'>
+							Upload Successful!
+						</p>
+					)}
 				</form>
 			</div>
 		</section>

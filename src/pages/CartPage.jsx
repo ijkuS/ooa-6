@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAuthContext } from '../contexts/AuthContext';
 import { getCart } from '../libs/firebase/cart-related';
 import CartItem from '../components/CartItem';

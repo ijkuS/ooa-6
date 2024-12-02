@@ -1,25 +1,19 @@
 import React from 'react';
 import ProductCard from '../../components/ProductCard';
-import { getProduct } from '../../libs/firebase/product-related';
-import LoadingPage from '../LoadingPage';
-import { useQuery } from '@tanstack/react-query';
+// import { getProduct } from '../../libs/firebase/product-related';
+// import { useQuery } from '@tanstack/react-query';
+import useProducts from '../../hooks/useProducts';
 
 export default function AllProductsPage() {
-	const {
-		isPending,
-		isError,
-		data: products,
-	} = useQuery({
-		queryKey: ['products'],
-		queryFn: getProduct,
-	});
-
-	if (isPending) {
-		return <LoadingPage />;
-	}
-	if (isError) {
-		return <div>Error loading products</div>;
-	}
+	const { products, isPending, isError } = useProducts();
+	// const {
+	// 	isPending,
+	// 	isError,
+	// 	data: products,
+	// } = useQuery({
+	// 	queryKey: ['products'],
+	// 	queryFn: getProduct,
+	// });
 
 	return (
 		<section className='all-products__page-container'>
