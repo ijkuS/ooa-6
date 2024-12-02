@@ -3,6 +3,7 @@ import {
 	addNewProduct,
 	uploadFiles,
 } from '../../libs/firebase/product-related';
+import useProducts from '../../hooks/useProducts';
 
 export default function AdminAddnew() {
 	const [files, setFiles] = useState([]);
@@ -17,6 +18,7 @@ export default function AdminAddnew() {
 	const [previewUrls, setPreviewUrls] = useState([]);
 	const [isUploading, setIsUploading] = useState(false);
 	const [success, setSuccess] = useState(null); // allow null for reset
+	const { addProductMutation } = useProducts();
 
 	const handleChange = (e) => {
 		e.preventDefault();
@@ -50,19 +52,28 @@ export default function AdminAddnew() {
 		setIsUploading(true);
 		try {
 			const urls = await uploadFiles(files);
-			addNewProduct(product, urls);
-			setProduct((prevProduct) => ({
-				...prevProduct,
-				imageUrls: [...(prevProduct.imageUrls || []), ...urls],
-			}));
-			console.log(urls);
-			console.log(product);
-			setSuccess(true);
-		} catch (error) {
-			console.error('Error on handleSubmit', error);
-			setSuccess(false);
+			addProductMutation.mutate(
+				{ product, urls },
+				{
+					onSuccess: () => {
+						setProduct((prevProduct) => ({
+							...prevProduct,
+							imageUrls: [
+								...(prevProduct.imageUrls || []),
+								...urls,
+							],
+						}));
+						setSuccess(true);
+						resetForm();
+					},
+					onError: (error) => {
+						console.error('Error adding product: ', error);
+						setSuccess(false);
+					},
+				}
+			);
 		} finally {
-			resetForm();
+			setIsUploading(false);
 		}
 	};
 	const resetForm = () => {
@@ -77,7 +88,6 @@ export default function AdminAddnew() {
 			options: '',
 		});
 		setTimeout(() => setSuccess(null), 4000);
-		setIsUploading(false);
 	};
 	return (
 		<section className='add-new-products__page-container'>
