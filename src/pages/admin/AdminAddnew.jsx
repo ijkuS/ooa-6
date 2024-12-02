@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import {
-	addNewProduct,
-	uploadFiles,
-} from '../../libs/firebase/product-related';
+import { uploadFiles } from '../../libs/firebase/product-related';
 import useProducts from '../../hooks/useProducts';
 
 export default function AdminAddnew() {
@@ -72,6 +69,8 @@ export default function AdminAddnew() {
 					},
 				}
 			);
+		} catch (error) {
+			console.error('Error on handleSubmit', error);
 		} finally {
 			setIsUploading(false);
 		}

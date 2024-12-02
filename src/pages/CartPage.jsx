@@ -1,24 +1,14 @@
 import React from 'react';
 import { useAuthContext } from '../contexts/AuthContext';
-import { getCart } from '../libs/firebase/cart-related';
+// import { getCart } from '../libs/firebase/cart-related';
 import CartItem from '../components/CartItem';
 import CartSummaryCard from '../components/CartSummaryCard';
 import { GENERAL_DELIVERY_FEE } from '../constants/shop-constants';
-import { useQuery } from '@tanstack/react-query';
+import useCart from '../hooks/useCart';
 
 export default function CartPage() {
-	const { user, uid } = useAuthContext();
-	const {
-		isPending,
-		isError,
-		data: cartItems,
-	} = useQuery({
-		queryKey: ['carts', uid],
-		queryFn: async () => {
-			const data = await getCart(uid);
-			return data;
-		},
-	});
+	const { uid } = useAuthContext();
+	const { isPending, isError, cartItems } = useCart();
 
 	const cartItemPrice =
 		cartItems &&

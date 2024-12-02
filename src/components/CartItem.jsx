@@ -1,5 +1,7 @@
 import React from 'react';
 import { addOrUpdateCart, removeFromCart } from '../libs/firebase/cart-related';
+import useCart from '../hooks/useCart';
+
 import {
 	AiOutlineMinusCircle,
 	AiOutlinePlusCircle,
@@ -8,15 +10,53 @@ import {
 
 export default function CartItem({ cartItem, uid }) {
 	const { images, title, price, category, id, quantity, options } = cartItem;
+	const { addOrUpdateCartMutation, removeFromCartMutation } = useCart();
+
 	const handleMinus = () => {
 		if (quantity < 2) return; //quantity shouldn't be less than 1
-		addOrUpdateCart(uid, { ...cartItem, quantity: quantity - 1 });
+		try {
+			addOrUpdateCartMutation.mutate(
+				{
+					userId: uid,
+					product: { ...cartItem, quantity: quantity - 1 },
+				},
+				{
+					onSuccess: () => {
+						console.log('quantity: -1');
+					},
+				}
+			);
+		} catch (error) {
+			console.error('Error handleMinus', error);
+		}
 	};
-	const handlePlus = () => {
-		addOrUpdateCart(uid, { ...cartItem, quantity: quantity + 1 });
+	const handlePlus = async () => {
+		try {
+			addOrUpdateCartMutation.mutate(
+				{
+					userId: uid,
+					product: { ...cartItem, quantity: quantity + 1 },
+				},
+				{
+					onSuccess: () => {
+						console.log('quantity: +1');
+					},
+				}
+			);
+		} catch (error) {
+			console.error('Error handlePlus', error);
+		}
 	};
 	const handleDelete = () => {
-		removeFromCart(uid, id);
+		removeFromCartMutation.mutate(
+			{ userId: uid, productId: id },
+			{
+				onSuccess: () => {
+					console.log('Remove from cart');
+				},
+			}
+		);
+		console.log('Remove from cart');
 	};
 
 	return (

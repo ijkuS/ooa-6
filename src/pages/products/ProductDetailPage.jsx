@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router';
-import LoadingPage from '../LoadingPage';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { addOrUpdateCart } from '../../libs/firebase/cart-related';
+import useCart from '../../hooks/useCart';
 
 export default function ProductDetailPage({ product }) {
 	const { uid } = useAuthContext();
+	const { addOrUpdateCartMutation } = useCart();
 
 	const {
 		state: {
@@ -22,6 +23,7 @@ export default function ProductDetailPage({ product }) {
 		},
 	} = useLocation(); // from ProductCard's useNavigate()
 	const [selected, setSelected] = useState();
+	const [success, setSuccess] = useState();
 
 	const handleSelect = (e) => {
 		const value = e.target.value;
@@ -45,7 +47,19 @@ export default function ProductDetailPage({ product }) {
 			options: selected,
 			quantity: 1,
 		};
-		addOrUpdateCart(uid, product);
+		try {
+			addOrUpdateCartMutation.mutate(
+				{ userId: uid, product },
+				{
+					onSuccess: () => {
+						setSuccess(true);
+						setTimeout(() => setSuccess(null), 3000);
+					},
+				}
+			);
+		} catch (error) {
+			console.error();
+		}
 	};
 
 	return (
@@ -88,7 +102,12 @@ export default function ProductDetailPage({ product }) {
 					</div>
 
 					<p className='description'>{description} </p>
-
+					{success && (
+						<p className='alert success'>
+							The item has been succesfully added to your
+							shopping cart
+						</p>
+					)}
 					<div className='buttons'>
 						<button
 							className='add-bag'
