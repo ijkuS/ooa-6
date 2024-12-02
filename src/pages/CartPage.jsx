@@ -2,12 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useAuthContext } from '../contexts/AuthContext';
 import { getCart } from '../libs/firebase/cart-related';
 import CartItem from '../components/CartItem';
+import CartSummaryCard from '../components/CartSummaryCard';
+import { GENERAL_DELIVERY_FEE } from '../constants/shop-constants';
 
 export default function CartPage() {
 	const { user, uid } = useAuthContext();
 	const [cartItems, setCartItems] = useState(null);
 	const [isPending, setIsPending] = useState(true);
 	const [isError, setIsError] = useState(false);
+	const cartItemPrice =
+		cartItems &&
+		cartItems.reduce(
+			(prev, current) =>
+				prev + parseInt(current.price) * current.quantity,
+			0
+		);
 
 	useEffect(() => {
 		if (!uid) return;
@@ -46,6 +55,17 @@ export default function CartPage() {
 					</ul>
 				)}
 			</div>
+			{cartItems && (
+				<div className='cart-summary-card__container'>
+					<h2 className='page-title'>Order Summary</h2>
+
+					<CartSummaryCard
+						totalPrice={cartItemPrice}
+						deliveryFee={GENERAL_DELIVERY_FEE}
+						cartItems={cartItems}
+					/>
+				</div>
+			)}
 		</section>
 	);
 }

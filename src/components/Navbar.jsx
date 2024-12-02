@@ -12,10 +12,6 @@ export default function Navbar() {
 		<nav>
 			<Link className='logo' to='/'>
 				<img src={logo} alt='ooa-logo' />
-				{/* <img
-					src='https://firebasestorage.googleapis.com/v0/b/react-shop-2024-2.appspot.com/o/images%2Fooa-logo.svg?alt=media&token=4dbab286-4762-4d00-ab1b-1711f1b7d6eb'
-					alt='ooa-logo'
-				/> */}
 			</Link>
 			<menu>
 				<Link className='button' to='/products/all'>
@@ -39,7 +35,7 @@ export default function Navbar() {
 				{user && <User user={user} />}
 				{user && (
 					<Link className='button' to='/cart'>
-						<CartStatus />
+						<CartStatus user={user} />
 					</Link>
 				)}
 			</menu>

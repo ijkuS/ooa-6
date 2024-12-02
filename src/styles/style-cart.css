@@ -53,8 +53,10 @@
 }
 .cart-item__container [class^='btn-'] {
 	color: var(--color-neutral-grey-600);
+	border: none;
 }
 .cart-item__container [class^='btn-']:hover {
+	cursor: pointer;
 	color: var(--color-neutral-grey-400);
 	transition: 0.1s ease-in-out;
 }
