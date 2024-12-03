@@ -38,10 +38,10 @@ export default function Navbar() {
 						</button>
 					</li>
 				</ul>
-				<div id='main-side-nav' className='side-nav'>
-					<SideNav />
-				</div>
 			</menu>
+			<div id='main-side-nav' className='side-nav'>
+				<SideNav />
+			</div>
 		</nav>
 	);
 }

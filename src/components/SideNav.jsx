@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { AiOutlineClose } from 'react-icons/ai';
 
 export default function SideNav() {
-	const { user, uid, login, logout } = useAuthContext();
+	const { user, login, logout } = useAuthContext();
 	const closeNav = () => {
 		document.getElementById('main-side-nav').style.width = '0';
 	};
@@ -32,9 +32,13 @@ export default function SideNav() {
 			<div className='auth-area'>
 				<li>
 					{user && user.isAdmin && (
-						<Link className='button' to='/admin/dashboard'>
-							Admin
-						</Link>
+						<>
+							<Link
+								className='button'
+								to='/admin/dashboard'>
+								Admin Home
+							</Link>
+						</>
 					)}
 				</li>
 				<li>

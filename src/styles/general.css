@@ -98,15 +98,18 @@ nav.menu__container menu ul {
 	display: flex;
 	flex-direction: row;
 	list-style-type: none;
+	align-items: center;
+	gap: 1rem;
 }
 nav.menu__container .sidemenu.button {
 	font-size: 1.5rem;
 }
-
+nav.menu__container .logo,
 nav.menu__container .logo img {
+	display: flex;
+	align-items: center;
 	cursor: pointer;
 	width: 50px;
-	height: fit-content;
 }
 
 nav.menu__container menu .button {
@@ -123,7 +126,7 @@ nav.menu__container menu .button:hover {
 	transition: 0.1s ease-in-out;
 }
 /* -- Navbar-side-nav --------------------------------------------------- */
-nav.menu__container .side-nav {
+.side-nav {
 	height: 100vh;
 	display: flex;
 	width: 0;
@@ -135,22 +138,27 @@ nav.menu__container .side-nav {
 	overflow-x: hidden;
 	transition: 0.2s ease-in-out;
 }
-nav.menu__container .side-nav ul {
+.side-nav ul {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	padding: 2rem;
 	justify-content: space-between;
+	list-style-type: none;
 }
-nav.menu__container .side-nav ul li {
+.side-nav ul li {
 	padding: 1rem 0;
 }
-nav.menu__container .sidemenu.close.button {
+.sidemenu.close.button {
 	display: flex;
 	margin-left: auto;
+	border: none;
+	background-color: transparent;
 }
-nav.menu__container .side-nav .button.special {
+.side-nav .button.special {
 	font-size: 1rem;
+	border: none;
+	background-color: transparent;
 }
 
 /* -- Navbar - User --------------------------------------------------- */
