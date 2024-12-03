@@ -74,13 +74,6 @@ a:visited {
 }
 /* -- Navbar --------------------------------------------------- */
 
-/* -- Navbar - Toggle OpenMenu --------------------------------------------------- */
-nav .menu-toggle-button {
-	display: none;
-}
-nav .menu-close-button {
-	display: none;
-}
 nav.menu__container {
 	width: 100%;
 	display: flex;
@@ -97,46 +90,67 @@ nav.menu__container {
 	border-bottom: 1px solid var(--color-neutral-grey-900);
 	background-color: var(--color-neutral-grey-200);
 }
-/* nav {
+nav.menu__container menu {
 	display: flex;
 	flex-direction: row;
-	position: sticky;
-	left: 0;
-	top: 0;
+}
+nav.menu__container menu ul {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+}
+nav.menu__container .sidemenu.button {
+	font-size: 1.5rem;
+}
 
-	justify-content: space-between;
-	align-items: center;
-
-	padding: 1rem 0;
-	margin-bottom: 1rem;
-	border-bottom: 1px solid var(--color-neutral-grey-900);
-	background-color: var(--color-neutral-grey-200);
-} */
-
-nav .logo img {
+nav.menu__container .logo img {
 	cursor: pointer;
 	width: 50px;
 	height: fit-content;
 }
-nav menu ul {
-	display: flex;
-	flex-direction: row;
-	gap: 1rem;
-	list-style-type: none;
-}
-nav menu .button {
+
+nav.menu__container menu .button {
 	display: flex;
 	cursor: pointer;
 	background-color: transparent;
 	border: none;
 	outline: none;
 
-	font-size: 0.9rem;
 	text-decoration: none;
 }
-nav menu .button:hover {
+nav.menu__container menu .button:hover {
 	color: var(--color-neutral-grey-600);
 	transition: 0.1s ease-in-out;
+}
+/* -- Navbar-side-nav --------------------------------------------------- */
+nav.menu__container .side-nav {
+	height: 100vh;
+	display: flex;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	background-color: var(--color-white);
+	overflow-x: hidden;
+	transition: 0.2s ease-in-out;
+}
+nav.menu__container .side-nav ul {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+	justify-content: space-between;
+}
+nav.menu__container .side-nav ul li {
+	padding: 1rem 0;
+}
+nav.menu__container .sidemenu.close.button {
+	display: flex;
+	margin-left: auto;
+}
+nav.menu__container .side-nav .button.special {
+	font-size: 1rem;
 }
 
 /* -- Navbar - User --------------------------------------------------- */
@@ -150,10 +164,7 @@ nav menu .button:hover {
 	height: 20px;
 	border-radius: 100%;
 }
-.user-name {
-	font-size: 0.7rem;
-	color: var(--color-neutral-grey-600);
-}
+
 /* -- Navbar - Cart Icon --------------------------------------------------- */
 .cart-icon {
 	display: flex;
@@ -241,61 +252,6 @@ footer ul {
 		flex-direction: column;
 	}
 
-	nav .subwrapper {
-		position: absolute;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-
-		height: 110vh;
-		width: 80%;
-		top: 0;
-		right: 0;
-		background-color: var(--color-white);
-
-		padding: 2rem 3rem;
-		margin: -1rem;
-
-		transform: translateX(150%);
-		transition: transform 0.3s ease-out;
-		box-shadow: 2px 2px 6px -1px rgba(0, 0, 0, 0.75);
-		-webkit-box-shadow: 2px 2px 6px -1px rgba(0, 0, 0, 0.75);
-		-moz-box-shadow: 2px 2px 6px -1px rgba(0, 0, 0, 0.75);
-	}
-	nav .subwrapper.open {
-		transform: translateX(0);
-	}
-	nav .menu-close-button {
-		display: none;
-	}
-	nav .menu-close-button.close {
-		display: flex;
-
-		margin-left: auto;
-		z-index: 5;
-		border: none;
-		font-size: 1.5rem;
-		background-color: transparent;
-		padding-bottom: 5rem;
-	}
-	nav .menu-toggle-button {
-		display: block;
-		z-index: 5;
-		border: none;
-		font-size: 1.5rem;
-	}
-	nav .menu-toggle-button.open {
-		display: none;
-	}
-
-	nav menu {
-		width: 100%;
-	}
-	nav menu ul {
-		display: flex;
-		flex-direction: column;
-	}
-
 	footer ul {
 		display: flex;
 		flex-direction: column;
@@ -311,9 +267,4 @@ footer ul {
 		min-width: 400px;
 		padding: 1rem;
 	}
-	/* menu {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	} */
 }
