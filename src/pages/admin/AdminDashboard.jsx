@@ -3,11 +3,14 @@ import { Link } from 'react-router';
 
 export default function AdminDashboard() {
 	return (
-		<div>
-			<h2>Admin Home</h2>
-			<Link className='button' to='/admin/addnew'>
-				Click to "Admin Addnew Page"
-			</Link>
-		</div>
+		<section className='admin__page-container'>
+			<div className='sub-wrapper'>
+				<h2 className='page-title'>Admin Home</h2>
+
+				<Link className='button' to='/admin/addnew'>
+					Click to "Admin Addnew Page"
+				</Link>
+			</div>
+		</section>
 	);
 }

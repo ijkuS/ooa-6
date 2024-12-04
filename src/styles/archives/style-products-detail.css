@@ -7,17 +7,21 @@
 .product-detail__page-container .sub-wrapper {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 	gap: 1rem;
 }
+.product-detail__page-container .preview-image__holder {
+	width: 100%;
+}
 .product-detail__page-container .preview-image__holder img {
-	width: 50vw;
+	width: 100%;
 	min-width: 200px;
 	object-fit: cover;
 	margin: auto;
 }
 
 .product-detail__page-container .text__holder {
-	width: 50vw;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
@@ -77,5 +81,3 @@
 	color: var(--color-white);
 }
 /* ----- Media Queries ------------------------------------------- */
-@media (max-width: 1200px) {
-}

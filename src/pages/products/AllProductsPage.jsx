@@ -7,10 +7,10 @@ export default function AllProductsPage() {
 
 	return (
 		<section className='all-products__page-container'>
-			<h2 className='page-title'>All Products</h2>
 			{isPending && <p>Loading...</p>}
 			{isError && <p>Error loading products</p>}
 			<div className='sub-wrapper'>
+				<h2 className='page-title'>All Products</h2>
 				{products && (
 					<ul className='product-list'>
 						{products.map((product) => (

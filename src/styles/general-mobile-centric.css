@@ -1,26 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-/***
-This file contains the general CSS styling, including:
-
-* General Body and Global CSS: Base styles for the entire application.
-* Navbar: Styling for the navigation bar.
-* General Outlet: Shared styles for outlet components.
-* Banner of Outlet.
-* Footer: Styling for the footer.
-* General Media Queries: Responsive styles for different screen sizes.
-
-I have separated the CSS styling for each page into the following files:
-
-- Location: src/styles/
-
-* style-addnew.css
-* style-cart.css
-* style-all-products.css
-* style-product-detail.css
-
-*/
-
 * {
 	margin: 0;
 	padding: 0;
@@ -42,90 +20,124 @@ I have separated the CSS styling for each page into the following files:
 	--color-ooa-monotone-4: #1c1d20;
 	--color-ooa-monotone-5: #0e0e0e;
 }
+
 body {
-	display: flex;
-	justify-content: center;
 	width: 100vw;
 	height: 100vh;
+	display: flex;
+	justify-content: center;
+
 	font-size: 1rem;
 	color: var(--color-neutral-grey-900);
 	background-color: var(--color-neutral-grey-200);
 	overflow-x: hidden;
 }
-main {
+
+.main-wrapper {
 	width: 100%;
 	display: flex;
+	flex-direction: column;
 	max-width: 1200px;
-	min-width: 370px;
-	margin: 0 auto;
+	min-width: 350px;
 }
-.main-wrapper {
-	width: 60%;
-	margin: 0 auto;
+section[class$='__page-container'] {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
-
+div[class$='sub-wrapper'] {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
 a:link,
 a:visited {
 	color: var(--color-neutral-grey-900);
 	text-decoration: none;
 }
-[class*='button']:hover {
-	cursor: pointer;
+[class$='image__holder'] {
+	width: 100%;
+	aspect-ratio: 3/4;
+	/* height: 250px; */
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 }
-/* -- Navbar --------------------------------------------------- */
+[class$='image__holder'] img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top;
+}
 
+/* -- Navbar --------------------------------------------------- */
 nav.menu__container {
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 	position: sticky;
-	left: 0;
 	top: 0;
 
 	justify-content: space-between;
 	align-items: center;
 
-	padding: 1rem 0;
+	padding: 1rem;
 	margin-bottom: 1rem;
 	border-bottom: 1px solid var(--color-neutral-grey-900);
 	background-color: var(--color-neutral-grey-200);
 }
-nav.menu__container menu {
-	display: flex;
-	flex-direction: row;
-}
-nav.menu__container menu ul {
-	display: flex;
-	flex-direction: row;
-	list-style-type: none;
-	align-items: center;
-	gap: 1rem;
-}
-nav.menu__container .sidemenu.button {
-	font-size: 1.5rem;
-}
-nav.menu__container .logo,
-nav.menu__container .logo img {
+nav.menu__container .logo {
 	display: flex;
 	align-items: center;
 	cursor: pointer;
 	width: 50px;
+	object-fit: cover;
 }
-
-nav.menu__container menu .button {
+nav.menu__container .navbar-menu ul {
 	display: flex;
-	cursor: pointer;
-	background-color: transparent;
-	border: none;
-	outline: none;
-
-	text-decoration: none;
+	list-style-type: none;
 }
-nav.menu__container menu .button:hover {
-	color: var(--color-neutral-grey-600);
+/* -- Navbar - User --------------------------------------------------- */
+nav.menu__container .user-info {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+nav.menu__container .user-photo {
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+}
+/* -- Navbar - Cart Icon --------------------------------------------------- */
+nav.menu__container .cart-icon {
+	display: flex;
+	align-items: center;
+	font-size: 1.25rem;
+	width: fit-content;
+}
+nav.menu__container .cart-icon:hover {
+	color: var(--color-ooa-monotone-2);
 	transition: 0.1s ease-in-out;
 }
-/* -- Navbar-side-nav --------------------------------------------------- */
+
+nav.menu__container .cart-badge {
+	position: relative;
+	/* right: -1.85rem;
+	top: -0.35rem; */
+
+	padding: 2px 6px;
+	margin-right: 3px;
+
+	background-color: var(--color-neutral-grey-900);
+	color: var(--color-white);
+	border-radius: 100%;
+
+	font-size: 0.6rem;
+	font-weight: 400;
+	text-align: center;
+}
+
+/* -- Navbar -side-nav --------------------------------------------------- */
 .side-nav {
 	height: 100vh;
 	display: flex;
@@ -160,49 +172,7 @@ nav.menu__container menu .button:hover {
 	border: none;
 	background-color: transparent;
 }
-
-/* -- Navbar - User --------------------------------------------------- */
-.user-info {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-}
-.user-photo {
-	width: 20px;
-	height: 20px;
-	border-radius: 100%;
-}
-
-/* -- Navbar - Cart Icon --------------------------------------------------- */
-.cart-icon {
-	display: flex;
-	align-items: center;
-	font-size: 1.25rem;
-	width: fit-content;
-}
-.cart-icon:hover {
-	color: var(--color-ooa-monotone-2);
-	transition: 0.1s ease-in-out;
-}
-
-.cart-badge {
-	position: relative;
-	/* right: -1.85rem;
-	top: -0.35rem; */
-
-	padding: 2px 6px;
-	margin-right: 3px;
-
-	background-color: var(--color-neutral-grey-900);
-	color: var(--color-white);
-	border-radius: 100%;
-
-	font-size: 0.6rem;
-	font-weight: 400;
-	text-align: center;
-}
 /* -- Banner --------------------------------------------------- */
-
 .landing-banner {
 	width: 100%;
 	display: flex;
@@ -230,49 +200,44 @@ nav.menu__container menu .button:hover {
 /* -- Footer --------------------------------------------------- */
 footer {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	border-top: 1px solid var(--color-neutral-grey-900);
 	left: 0;
 	bottom: 0;
-	padding: 2rem 0;
+	padding: 2rem 1rem;
 	margin-top: 2rem;
+	background-color: var(--color-neutral-grey-900);
+	color: var(--color-neutral-grey-400);
 }
-
 footer ul {
 	width: 100%;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-between;
 
 	list-style-type: none;
 	font-size: 0.7rem;
+	line-height: 150%;
 }
 
 /* ----- Media Queries ------------------------------------------- */
-@media (max-width: 1199px) {
-	.main-wrapper {
-		width: 100%;
-		min-width: 400px;
-		padding: 1rem;
-	}
-	section[class$='__page-container'] .sub-wrapper {
-		display: flex;
-		flex-direction: column;
-	}
+@media (min-width: 576px) {
+}
 
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
 	footer ul {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		justify-content: flex-start;
+		gap: 1.5rem;
 	}
 }
 
-@media (max-width: 768px) {
-	/* main {
-		padding: 1rem;
-	} */
-	.main-wrapper {
-		width: 100%;
-		min-width: 400px;
-		padding: 1rem;
-	}
+@media (min-width: 1400px) {
 }

@@ -1,61 +1,41 @@
-.all-products__page-container {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-}
-
 .all-products__page-container ul {
 	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	gap: 10px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 1rem;
+	list-style-type: none;
+	padding: 0;
+	margin: 0 auto;
 }
 
 /* -- Product Card ----------------------------------- */
+/* .all-products__page-container ul li {
+	flex: 1 1 calc(100% / 2 - 1rem); 
+	max-width: calc(100% / 2 - 1rem);
+} */
 .all-products__page-container ul li {
+	width: 100%;
+	overflow: hidden;
+}
+.all-products__page-container ul li .product-card {
 	display: flex;
 	flex-direction: column;
-	/*w/o flex-direction: column, each image is located odd*/
-	width: calc(33.3% - 1rem);
-	align-items: left;
-	overflow: hidden;
 }
-.all-products__page-container ul li:hover {
-	cursor: pointer;
-	opacity: 90%;
-	transition: 0.1s ease-in-out;
-}
-.all-products__page-container .image__holder {
-	display: flex;
-	/* w/o display, object-position of img didn't work */
-	width: 100%;
-	height: 400px;
-	overflow: hidden;
-}
-.all-products__page-container .image__holder img {
-	width: 100%;
-	object-fit: cover;
-	object-position: top;
-}
-.all-products__page-container .text__holder {
-	margin-top: 1rem;
-}
-.all-products__page-container .text__holder .product-title {
-	font-size: 1rem;
-}
-/* ----- Media Queries ------------------------------------------- */
 
-@media (max-width: 1200px) {
-	.all-products__page-container ul li {
-		display: flex;
-		width: calc(50% - 1rem);
-	}
-	.all-products__page-container .image__holder {
-		display: flex;
-		width: 100%;
-		height: 300px;
+/* ----- Media Queries ------------------------------------------- */
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+	.all-products__page-container ul {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	}
 }
-@media (max-width: 768px) {
+
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
 }

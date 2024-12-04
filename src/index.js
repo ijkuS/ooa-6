@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles/general.css';
-import '/src/styles/style-addnew.css';
+import '/src/styles/general-mobile-centric.css';
+// import '/src/styles/style-addnew.css';
 import '/src/styles/style-products-all.css';
-import '/src/styles/style-products-detail.css';
-import '/src/styles/style-cart.css';
+// import '/src/styles/style-products-detail.css';
+// import '/src/styles/style-cart.css';
 
 import { RouterProvider, createBrowserRouter } from 'react-router';
 import App from './App';
