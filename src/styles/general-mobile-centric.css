@@ -136,10 +136,12 @@ button[class*='outline'] {
 [class^='alert'] {
 	font-size: 0.9rem;
 	color: var(--color-alert);
+	text-align: center;
 }
 [class^='inform'] {
 	font-size: 0.9rem;
 	color: var(--color-inform);
+	text-align: center;
 }
 
 /* -- Navbar --------------------------------------------------- */
@@ -153,6 +155,7 @@ nav.menu__container {
 	flex-direction: row;
 	position: sticky;
 	top: 0;
+	left: 0;
 	z-index: 1;
 
 	justify-content: space-between;
@@ -195,26 +198,31 @@ nav.menu__container .user-photo {
 	border-radius: 100%;
 }
 /* -- Navbar - Cart Icon --------------------------------------------------- */
-nav.menu__container .cart-icon {
+nav.menu__container .cart-icon__part {
+	height: 22px;
 	display: flex;
 	align-items: center;
 	font-size: 1.4rem;
 	width: fit-content;
+	background-color: var(--color-neutral-grey-900);
+	border-radius: 1rem;
+	padding: 0.1rem 0.5rem;
+	gap: 0.2rem;
+}
+nav.menu__container .cart-icon {
+	display: flex;
+	align-items: center;
+	color: var(--color-neutral-grey-200);
 }
 nav.menu__container .cart-icon:hover {
+	color: var(--color-neutral-grey-400);
 	transition: 0.1s ease-in-out;
 }
 
 nav.menu__container .cart-badge {
-	position: relative;
-	padding: 3.5px 6px;
-	margin-right: 3px;
-
-	background-color: var(--color-neutral-grey-900);
 	color: var(--color-white);
-	border-radius: 100%;
 
-	font-size: 0.6rem;
+	font-size: 0.7rem;
 	font-weight: 400;
 	text-align: center;
 }
@@ -253,6 +261,9 @@ nav.menu__container .cart-badge {
 	font-size: 1rem;
 	border: none;
 	background-color: transparent;
+}
+.side-nav .button.icon {
+	font-size: 1.2rem;
 }
 /* -- Banner --------------------------------------------------- */
 .landing-banner {

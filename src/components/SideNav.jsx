@@ -3,6 +3,8 @@ import { useAuthContext } from '../contexts/AuthContext';
 import { Link } from 'react-router';
 
 import { AiOutlineClose } from 'react-icons/ai';
+import CartStatus from './CartStatus';
+import { IoBagOutline } from 'react-icons/io5';
 
 export default function SideNav() {
 	const { user, login, logout } = useAuthContext();
@@ -39,6 +41,13 @@ export default function SideNav() {
 								Admin Home
 							</Link>
 						</>
+					)}
+				</li>
+				<li>
+					{user && (
+						<Link className='button icon' to='/cart'>
+							<IoBagOutline />
+						</Link>
 					)}
 				</li>
 				<li>

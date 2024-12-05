@@ -7,13 +7,13 @@ export default function CartStatus({ user }) {
 	const { isPending, isError, cartItems } = useCart();
 
 	return (
-		<div className='cart-icon'>
-			{isPending && <p>Loading...</p>}
-			{isError && <p>There is something wrong...</p>}
-			{cartItems && <p className='cart-badge'>{cartItems.length}</p>}
+		<div className='cart-icon__part'>
 			<button className='cart-icon button'>
 				<IoBagOutline />
 			</button>
+			{isPending && <p>Loading...</p>}
+			{isError && <p>There is something wrong...</p>}
+			{cartItems && <p className='cart-badge'>{cartItems.length}</p>}
 		</div>
 	);
 }
