@@ -5,10 +5,18 @@ export default function Footer() {
 		<footer className='footer__container'>
 			<ul>
 				<li>© 2024 JoyWorks Co.,Ltd. All Rights Reserved</li>
-				<li>Guides Terms of Sale </li>
-				<li>Terms of Use</li>
-				<li>OOA Privacy Policy</li>
-				<li>Your Privacy Choices </li>
+				<li>
+					<a>Guides Terms of Sale</a>
+				</li>
+				<li>
+					<a>Terms of Use</a>
+				</li>
+				<li>
+					<a>OOA Privacy Policy</a>
+				</li>
+				<li>
+					<a>Your Privacy Choices</a>{' '}
+				</li>
 			</ul>
 		</footer>
 	);

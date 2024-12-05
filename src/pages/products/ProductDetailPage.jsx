@@ -102,19 +102,23 @@ export default function ProductDetailPage({ product }) {
 					</div>
 
 					<p className='description'>{description} </p>
+					{/* <p className='alert success'>
+						The item has been succesfully added to your
+						shopping cart
+					</p> */}
 					{success && (
-						<p className='alert success'>
+						<p className='inform success'>
 							The item has been succesfully added to your
 							shopping cart
 						</p>
 					)}
 					<div className='buttons'>
 						<button
-							className='add-bag'
+							className='button outline'
 							onClick={handleAddtoBag}>
 							Add to Bag
 						</button>
-						<button className='checkout'>Checkout</button>
+						<button className='button solid'>Checkout</button>
 					</div>
 				</div>
 			</div>

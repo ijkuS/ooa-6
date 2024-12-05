@@ -90,19 +90,9 @@ export default function AdminAddnew() {
 	};
 	return (
 		<section className='add-new-products__page-container'>
-			<div className='sub-wrapper'>
-				<h2 className='page-title'>admin / Addnew page</h2>
-				<div className='preview-image__holder'>
-					{previewUrls &&
-						previewUrls.map((url, index) => (
-							<img
-								src={url}
-								key={index}
-								alt={`preview-${index}`}
-							/>
-						))}
-				</div>
+			<h2 className='page-title'>admin / Addnew page</h2>
 
+			<div className='sub-wrapper'>
 				<form className='form__holder' onSubmit={handleSubmit}>
 					<label htmlFor='file-input'>Add Files</label>
 					<input
@@ -179,17 +169,27 @@ export default function AdminAddnew() {
 						onChange={handleChange}
 					/>
 					<button
-						className='button upload'
+						className='button solid'
 						type='submit'
 						disabled={isUploading}>
 						{isUploading ? 'Uploading...' : 'Click to Upload'}
 					</button>
 					{success && (
-						<p className='alert success'>
+						<p className='inform success'>
 							Upload Successful!
 						</p>
 					)}
 				</form>
+				<div className='preview-image__holder'>
+					{previewUrls &&
+						previewUrls.map((url, index) => (
+							<img
+								src={url}
+								key={index}
+								alt={`preview-${index}`}
+							/>
+						))}
+				</div>
 			</div>
 		</section>
 	);

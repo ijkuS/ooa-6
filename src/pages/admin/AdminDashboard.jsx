@@ -4,12 +4,15 @@ import { Link } from 'react-router';
 export default function AdminDashboard() {
 	return (
 		<section className='admin__page-container'>
-			<div className='sub-wrapper'>
-				<h2 className='page-title'>Admin Home</h2>
+			<h2 className='page-title'>Admin Home</h2>
 
-				<Link className='button' to='/admin/addnew'>
-					Click to "Admin Addnew Page"
-				</Link>
+			<div className='sub-wrapper'>
+				<div className='text__holder'>
+					<Link className='button solid' to='/admin/addnew'>
+						<button className='button' />
+						Click to Admin Addnew Page
+					</Link>
+				</div>
 			</div>
 		</section>
 	);

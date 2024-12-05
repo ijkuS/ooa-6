@@ -11,8 +11,9 @@ export default function CartStatus({ user }) {
 			{isPending && <p>Loading...</p>}
 			{isError && <p>There is something wrong...</p>}
 			{cartItems && <p className='cart-badge'>{cartItems.length}</p>}
-
-			<IoBagOutline />
+			<button className='cart-icon button'>
+				<IoBagOutline />
+			</button>
 		</div>
 	);
 }

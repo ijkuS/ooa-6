@@ -30,13 +30,10 @@ export default function Navbar() {
 							</Link>
 						)}
 					</li>
-					<li>
-						<button
-							className='sidemenu button'
-							onClick={openNav}>
-							<AiOutlineMenu />
-						</button>
-					</li>
+
+					<button className='sidemenu button' onClick={openNav}>
+						<AiOutlineMenu />
+					</button>
 				</ul>
 			</menu>
 			<div id='main-side-nav' className='side-nav'>

@@ -20,36 +20,39 @@ export default function CartPage() {
 
 	return (
 		<section className='cart__page-container'>
-			<div className='item__container'>
-				<h2 className='page-title'>Shopping Bag Items</h2>
-				{isPending && <p>Loading...</p>}
-				{isError && <p>There is something wrong...</p>}
+			<div className='sub-wrapper'>
+				<div className='item__wrapper'>
+					<h2 className='page-title'>Shopping Bag Items</h2>
+
+					{isPending && <p>Loading...</p>}
+					{isError && <p>There is something wrong...</p>}
+					{cartItems && (
+						<ul>
+							{cartItems.map((cartItem) => (
+								<li
+									key={cartItem.id}
+									className='cart-item__wrapper'>
+									<CartItem
+										cartItem={cartItem}
+										uid={uid}
+									/>
+								</li>
+							))}
+						</ul>
+					)}
+				</div>
 				{cartItems && (
-					<ul>
-						{cartItems.map((cartItem) => (
-							<li
-								key={cartItem.id}
-								className='cart-item__container'>
-								<CartItem
-									cartItem={cartItem}
-									uid={uid}
-								/>
-							</li>
-						))}
-					</ul>
+					<div className='cart-summary-card__wrapper'>
+						<h2 className='page-title'>Order Summary</h2>
+
+						<CartSummaryCard
+							totalPrice={cartItemPrice}
+							deliveryFee={GENERAL_DELIVERY_FEE}
+							cartItems={cartItems}
+						/>
+					</div>
 				)}
 			</div>
-			{cartItems && (
-				<div className='cart-summary-card__container'>
-					<h2 className='page-title'>Order Summary</h2>
-
-					<CartSummaryCard
-						totalPrice={cartItemPrice}
-						deliveryFee={GENERAL_DELIVERY_FEE}
-						cartItems={cartItems}
-					/>
-				</div>
-			)}
 		</section>
 	);
 }

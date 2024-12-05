@@ -14,8 +14,10 @@ export default function CartSummaryCard({
 				<p className='total'>
 					Total: {`${totalPrice + deliveryFee} USD`}
 				</p>
+				<button className='button solid'>
+					Proceed to Checkout
+				</button>
 			</div>
-			<button>Proceed to Checkout</button>
 		</>
 	);
 }

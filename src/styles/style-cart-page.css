@@ -1,0 +1,60 @@
+/* -- CartItem ------------------------------------------------ */
+
+.cart__page-container .cart-item__wrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	padding: 1rem;
+	border-bottom: 1px solid var(--color-neutral-grey-400);
+}
+.cart__page-container .cart-item__wrapper .image__holder {
+	width: 30%;
+	min-width: 100px;
+}
+
+.cart__page-container .text__holder {
+	padding-top: 0;
+}
+
+.cart__page-container .text__holder .product-title {
+	font-weight: 500;
+	text-transform: capitalize;
+}
+.cart__page-container .text__holder .category {
+	font-size: 0.9rem;
+	color: var(--color-neutral-grey-600);
+}
+.cart__page-container .text__holder .price {
+	padding: 1rem 0;
+	font-weight: 500;
+}
+
+.cart__page-container .quantity__part {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
+.cart__page-container .button-delete {
+	display: flex;
+	font-size: 1.3rem;
+	font-weight: 200;
+	align-items: flex-start;
+}
+
+/* -- CartSummaryCard ------------------------------------------------ */
+
+.cart__page-container .cart-summary-card__wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	/* padding: 0 1rem; */
+}
+.cart__page-container .cart-summary-card__wrapper .text__holder {
+	padding-top: 1rem;
+}
+
+.cart__page-container .cart-summary-card__wrapper .text__holder .total {
+	border-top: 1px solid var(--color-neutral-grey-400);
+	padding: 1rem 0;
+	margin-top: 1rem;
+}

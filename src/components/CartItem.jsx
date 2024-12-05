@@ -1,5 +1,4 @@
 import React from 'react';
-import { addOrUpdateCart, removeFromCart } from '../libs/firebase/cart-related';
 import useCart from '../hooks/useCart';
 
 import {
@@ -69,18 +68,18 @@ export default function CartItem({ cartItem, uid }) {
 				<p className='category'>{category}</p>
 				<p className='option-selected'>Size: {options}</p>
 
-				<div className='quantity__holder'>
-					<button className='btn-minus' onClick={handleMinus}>
+				<div className='quantity__part'>
+					<button className='button-minus' onClick={handleMinus}>
 						<AiOutlineMinusCircle />
 					</button>
 					<p>{quantity}</p>
-					<button className='btn-plus' onClick={handlePlus}>
+					<button className='button-plus' onClick={handlePlus}>
 						<AiOutlinePlusCircle />
 					</button>
 				</div>
 				<p className='price'>{`${price} USD`}</p>
 			</div>
-			<button className='btn-delete' onClick={handleDelete}>
+			<button className='button-delete' onClick={handleDelete}>
 				<AiOutlineClose />
 			</button>
 		</>
