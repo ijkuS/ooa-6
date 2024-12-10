@@ -24,7 +24,7 @@ import ProductDetailPage from './pages/products/ProductDetailPage';
 
 const router = createBrowserRouter([
 	{
-		path: '/ooa-6',
+		path: '/',
 		element: <Root />,
 		errorElement: <NotFoundPage />,
 		children: [
