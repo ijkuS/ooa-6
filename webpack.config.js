@@ -10,8 +10,8 @@ module.exports = {
 	mode: process.env.mode,
 	entry: './src/index.js',
 	output: {
-		path: path.resolve(__dirname, 'build'),
 		filename: '[name].[fullhash].js',
+		path: path.resolve(__dirname, 'build'),
 		publicPath: '/',
 	},
 	resolve: {

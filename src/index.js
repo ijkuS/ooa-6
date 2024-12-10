@@ -24,6 +24,10 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import ProtectedRoute from './routes/ProtectedRoute';
 import ProductDetailPage from './pages/products/ProductDetailPage';
 
+if (process.env.NODE_ENV !== 'production') {
+	console.log('Looks like we are in development mode!');
+}
+
 const root = document.getElementById('root');
 
 ReactDOM.createRoot(root).render(
