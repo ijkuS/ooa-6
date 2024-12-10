@@ -24,7 +24,7 @@ import ProductDetailPage from './pages/products/ProductDetailPage';
 
 const router = createBrowserRouter([
 	{
-		path: '/',
+		path: '/ooa-6',
 		element: <Root />,
 		errorElement: <NotFoundPage />,
 		children: [
@@ -58,9 +58,9 @@ const router = createBrowserRouter([
 			},
 		],
 	},
-	{
-		basename: process.env.REACT_APP_PUBLIC_URL, // Set the basename for GitHub Pages
-	},
+	// {
+	// 	basename: process.env.REACT_APP_PUBLIC_URL, // Set the basename for GitHub Pages
+	// },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
