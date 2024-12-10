@@ -9,7 +9,9 @@ import '/src/styles/style-admin-dashboard.css';
 
 import {
 	BrowserRouter,
+	Route,
 	RouterProvider,
+	Routes,
 	createBrowserRouter,
 } from 'react-router';
 import App from './App';
@@ -22,52 +24,49 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import ProtectedRoute from './routes/ProtectedRoute';
 import ProductDetailPage from './pages/products/ProductDetailPage';
 
-const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <Root />,
-		errorElement: <NotFoundPage />,
-		children: [
-			{ index: true, element: <App /> },
-			{ path: '/products/all', element: <AllProductsPage /> },
-			{ path: '/products/:id', element: <ProductDetailPage /> },
+const root = document.getElementById('root');
 
-			{
-				path: '/cart',
-				element: (
-					<ProtectedRoute>
-						<CartPage />
-					</ProtectedRoute>
-				),
-			},
-			{
-				path: '/admin/dashboard',
-				element: (
-					<ProtectedRoute requireAdmin>
-						<AdminDashboard />
-					</ProtectedRoute>
-				),
-			},
-			{
-				path: '/admin/addnew',
-				element: (
-					<ProtectedRoute requireAdmin>
-						<AdminAddnew />
-					</ProtectedRoute>
-				),
-			},
-		],
-	},
-	// {
-	// 	basename: process.env.REACT_APP_PUBLIC_URL, // Set the basename for GitHub Pages
-	// },
-]);
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.createRoot(root).render(
 	<React.StrictMode>
-		{/* <BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}> */}
-		<RouterProvider router={router} />
-		{/* </BrowserRouter> */}
+		<BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
+			<Routes>
+				<Route path='/' element={<Root />}>
+					<Route index element={<App />} />
+					<Route
+						path='products/all'
+						element={<AllProductsPage />}
+					/>
+					<Route
+						path='products/:id'
+						element={<ProductDetailPage />}
+					/>
+					<Route
+						path='cart'
+						element={
+							<ProtectedRoute>
+								<CartPage />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path='admin/dashboard'
+						element={
+							<ProtectedRoute requireAdmin>
+								<AdminDashboard />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path='admin/addnew'
+						element={
+							<ProtectedRoute requireAdmin>
+								<AdminAddnew />
+							</ProtectedRoute>
+						}
+					/>
+				</Route>
+				<Route path='*' element={<NotFoundPage />} />
+			</Routes>
+		</BrowserRouter>
 	</React.StrictMode>
 );
