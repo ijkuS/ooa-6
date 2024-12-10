@@ -58,13 +58,16 @@ const router = createBrowserRouter([
 			},
 		],
 	},
+	{
+		basename: process.env.REACT_APP_PUBLIC_URL, // Set the basename for GitHub Pages
+	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
-			<RouterProvider router={router} />
-		</BrowserRouter>
+		{/* <BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}> */}
+		<RouterProvider router={router} />
+		{/* </BrowserRouter> */}
 	</React.StrictMode>
 );
