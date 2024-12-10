@@ -1,6 +1,5 @@
 {
 	"name": "ooa-6",
-	"homepage": "https://ijkus.github.io/ooa-6/",
 	"version": "1.0.0",
 	"private": "false",
 	"scripts": {
@@ -39,5 +38,6 @@
 		"webpack": "^5.96.1",
 		"webpack-cli": "^5.1.4",
 		"webpack-dev-server": "^5.1.0"
-	}
+	},
+	"homepage": "https://ijkus.github.io/ooa-6/"
 }
