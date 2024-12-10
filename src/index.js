@@ -7,7 +7,11 @@ import '/src/styles/style-products-detail-page.css';
 import '/src/styles/style-cart-page.css';
 import '/src/styles/style-admin-dashboard.css';
 
-import { RouterProvider, createBrowserRouter } from 'react-router';
+import {
+	BrowserRouter,
+	RouterProvider,
+	createBrowserRouter,
+} from 'react-router';
 import App from './App';
 import Root from './routes/Root';
 import NotFoundPage from './pages/NotFoundPage';
@@ -59,6 +63,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
+			<RouterProvider router={router} />
+		</BrowserRouter>
 	</React.StrictMode>
 );
