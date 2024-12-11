@@ -7,13 +7,7 @@ import '/src/styles/style-products-detail-page.css';
 import '/src/styles/style-cart-page.css';
 import '/src/styles/style-admin-dashboard.css';
 
-import {
-	BrowserRouter,
-	Route,
-	RouterProvider,
-	Routes,
-	createBrowserRouter,
-} from 'react-router';
+import { BrowserRouter, Route, Routes } from 'react-router';
 import App from './App';
 import Root from './routes/Root';
 import NotFoundPage from './pages/NotFoundPage';
@@ -23,6 +17,7 @@ import AdminAddnew from './pages/admin/AdminAddnew';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ProtectedRoute from './routes/ProtectedRoute';
 import ProductDetailPage from './pages/products/ProductDetailPage';
+import { PUBLIC_URL } from './constants/deploy-constants';
 
 if (process.env.NODE_ENV !== 'production') {
 	console.log('Looks like we are in development mode!');
@@ -32,7 +27,7 @@ const root = document.getElementById('root');
 
 ReactDOM.createRoot(root).render(
 	<React.StrictMode>
-		<BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
+		<BrowserRouter basename={PUBLIC_URL}>
 			<Routes>
 				<Route path='/' element={<Root />}>
 					<Route index element={<App />} />
