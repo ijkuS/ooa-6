@@ -84,7 +84,7 @@ export default function ProductDetailPage({ product }) {
 
 					<p className='category'>{category}</p>
 					<p className='price'>{price} USD</p>
-					<div className='option-buttons'>
+					<div className='option-btn-list'>
 						{options &&
 							options.map((option, index) => (
 								<button

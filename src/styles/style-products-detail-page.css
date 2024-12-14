@@ -35,20 +35,22 @@
 .product-detail__page-container .text__holder .options {
 	padding: 1rem 0 3rem 0;
 }
-.product-detail__page-container .option-buttons {
+.product-detail__page-container .option-btn-list {
 	display: flex;
 	gap: 0.5rem;
 	padding-top: 0.5rem;
 }
-.product-detail__page-container .option-buttons button {
+.product-detail__page-container .option-btn-list button {
 	width: 2rem;
 	height: 2rem;
 	border: 1px solid var(--color-neutral-grey-900);
 }
-.product-detail__page-container .option-buttons button:hover {
+.product-detail__page-container .option-btn-list button:hover {
+	cursor: pointer;
+	transition: 0.05s ease-in-out;
 	background-color: var(--color-neutral-grey-600);
 }
-.product-detail__page-container .option-buttons button.selected {
+.product-detail__page-container .option-btn-list button.selected {
 	background-color: var(--color-neutral-grey-900);
 	color: var(--color-white);
 }

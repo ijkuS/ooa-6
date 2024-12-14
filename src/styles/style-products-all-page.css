@@ -15,7 +15,6 @@
 }
 .all-products__page-container ul li:hover {
 	cursor: pointer;
-	opacity: 80%;
 }
 .all-products__page-container ul li .product-card {
 	display: flex;
@@ -23,7 +22,8 @@
 }
 .all-products__page-container ul li .product-card img:hover {
 	transform: scale(105%);
-	transition: 0.15s ease-in-out;
+	filter: grayscale(100%) brightness(103%);
+	transition: 0.2s ease-in-out;
 }
 .all-products__page-container .text__holder {
 	font-size: 0.9rem;
