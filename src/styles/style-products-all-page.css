@@ -21,6 +21,10 @@
 	display: flex;
 	flex-direction: column;
 }
+.all-products__page-container ul li .product-card img:hover {
+	transform: scale(105%);
+	transition: 0.15s ease-in-out;
+}
 .all-products__page-container .text__holder {
 	font-size: 0.9rem;
 }

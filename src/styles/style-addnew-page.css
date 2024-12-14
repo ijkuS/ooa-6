@@ -5,6 +5,9 @@
 	border: none;
 	/* border-bottom: 1px solid var(--color-neutral-grey-800); */
 }
+.add-new-products__page-container .preview-image__holder {
+	overflow: visible;
+}
 /* .preview-image__holder {
 	background-color: var(--color-neutral-grey-400);
 } */

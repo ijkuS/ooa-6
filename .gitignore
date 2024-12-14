@@ -15,6 +15,7 @@ node_modules
 /coverage
 
 
+
 # production
 /build
 /dist
@@ -22,6 +23,8 @@ node_modules
 # misc
 .DS_Store
 *.pem
+/archives
+/archive
 
 # debug
 npm-debug.log*
@@ -43,3 +46,4 @@ next-env.d.ts
 # others
 .eslintrc.json
 config.js 
+.vscode

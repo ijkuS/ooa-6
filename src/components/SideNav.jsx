@@ -27,8 +27,8 @@ export default function SideNav() {
 						All Products
 					</Link>
 				</li>
-				<li>Brands</li>
-				<li>Category</li>
+				{/* <li>Brands</li>
+				<li>Category</li> */}
 			</div>
 
 			<div className='auth-area'>
