@@ -169,7 +169,7 @@ nav.menu__container {
 	background-color: var(--color-neutral-grey-200);
 }
 
-nav.menu__container .logo {
+nav.menu__container #ooa-logo {
 	display: flex;
 	align-items: center;
 	cursor: pointer;

@@ -33,11 +33,16 @@ export default function ProductDetailPage({ product }) {
 	};
 	const handleAddtoBag = (e) => {
 		e.preventDefault();
+		if (!uid) {
+			alert('Please log in or sign up first');
+			return;
+		}
 		console.log('Add to Bag');
 		if (!selected || selected.length === 0) {
 			alert('You did not select any option');
 			return;
 		}
+
 		const product = {
 			id,
 			images,
@@ -60,6 +65,12 @@ export default function ProductDetailPage({ product }) {
 		} catch (error) {
 			console.error();
 		}
+	};
+	const handleCheckout = (e) => {
+		e.preventDefault();
+		alert(
+			'We regret to inform you that the checkout service is currently unavailable on this test site. We apologize for any inconvenience this may cause.'
+		);
 	};
 
 	return (
@@ -118,7 +129,11 @@ export default function ProductDetailPage({ product }) {
 							onClick={handleAddtoBag}>
 							Add to Bag
 						</button>
-						<button className='button solid'>Checkout</button>
+						<button
+							className='button solid'
+							onClick={handleCheckout}>
+							Checkout
+						</button>
 					</div>
 				</div>
 			</div>

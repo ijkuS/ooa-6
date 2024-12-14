@@ -18,6 +18,7 @@ export default function Navbar() {
 		<nav className='menu__container'>
 			<Link className='logo' to='/'>
 				<img
+					id='ooa-logo'
 					src='https://firebasestorage.googleapis.com/v0/b/react-shop-2024-2.appspot.com/o/images%2Fooa-logo.svg?alt=media&token=4dbab286-4762-4d00-ab1b-1711f1b7d6eb'
 					alt='ooa-logo'
 				/>
