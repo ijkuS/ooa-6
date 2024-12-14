@@ -1,6 +1,5 @@
 import { ref as databaseRef, get, remove, set } from 'firebase/database';
-import { firebaseRTDatabase, firebaseStorage } from './config';
-import { ref } from 'firebase/storage';
+import { firebaseRTDatabase } from './config';
 
 export async function getCart(userId) {
 	const dbRef = databaseRef(firebaseRTDatabase, `carts/${userId}`);
@@ -9,7 +8,7 @@ export async function getCart(userId) {
 		if (snapshot.exists()) {
 			const items = snapshot.val();
 			const modifiedItems = Object.values(items);
-			console.log('🍎🍎 modifiedItems:', modifiedItems);
+			// console.log('🍎🍎 modifiedItems:', modifiedItems);
 
 			return modifiedItems;
 		} else {

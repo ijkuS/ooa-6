@@ -1,8 +1,11 @@
-# OOA Website - Work In Progress (WIP)
+# OOA e-commerce platform development
 
 OOA is a new e-commerce platform specializing in outdoor wear, launched by Joy Works, which also operates HOKA Korea.
 
 This web development project focuses on seamlessly merging offline and online shopping experiences. It curates a diverse range of outdoor styles and lifestyle content, tackling challenges like booking limited editions, browsing personalized content, and streamlining payments. The aim is to improve the shopping experience for users, employees, and stores, positioning OOA as a leader in the outdoor lifestyle market.
+
+-    gitHub URL: [Noej Ijkus](https://github.com/ijkuS)
+-    Live Site URL: [OOA](https://ijkus.github.io/ooa-6/)
 
 ![](./public/assets/ux/ooa_UX-5.jpeg)
 
@@ -18,12 +21,12 @@ This web development project focuses on seamlessly merging offline and online sh
 
      -    [Planning](#planning)
           -    [App UX/UI planning](#app-uxui-planning)
-          -    [Basic interaction planning](#basic-interaction-planning)
           -    [Technical planning](#technical-planning)
 
 -    [Challenges and Lessons](#challenges-and-lessons)
 
-     -    [1. React environment with NextJS]
+     -    [Build React environment with Next.js - To do next time](#react-environment-with-nextjs---to-do-next-time)
+     -    [1. Build React environment without CRA](#1-build-react-environment-without-cra)
      -    [2. File structure setting](#2-file-structure-setting)
      -    [3. Skeleton of application (Navbar + Outlet)](#3-skeleton-of-application-navbar--outlet)
      -    [4. Authentication with Firebase](#4-authentication-with-firebase)
@@ -35,7 +38,8 @@ This web development project focuses on seamlessly merging offline and online sh
 
      -    [9. Cart Page](#9-cart-page-with-firebsase-realtime-database)
 
-     -    [Optimistic Update - useQuery]()
+     -    [Refactor: Optimistic Update - useQuery]()
+     -    [Deployment: gitHub with gh-pages]
 
      -    [Frontend Global State Management](#frontend-global-state-management)
 
@@ -69,14 +73,13 @@ General
 -    [x] See all products on the main homepage (A, M, N)
 -    [x] See all product details (A, M, N)
      -    [x] Add to bag button (A, M)
--    [ ] LocalStorage
 
 SignUp & Bag(cart)
 
 -    [x] Login/Logout/SignUp (A, M, N)
 -    [x] Bag (A, M)
      -    [x] Add products in a cart
-     -    [ ] Edit items in a cart (remove, update options)
+     -    [x] Edit items in a cart (remove, update options)
 
 Add & Edit(A)
 
@@ -91,7 +94,7 @@ Add & Edit(A)
 ### Links
 
 -    gitHub URL: [Noej Ijkus](https://github.com/ijkuS)
--    Live Site URL:
+-    Live Site URL: [OOA](https://ijkus.github.io/ooa-6/)
 
 ## My process
 
@@ -240,15 +243,13 @@ for admins
 
 ## Challenges and Lessons
 
-### 1. React environment with NextJS
+### Build React environment with Next.js - To do next time
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Effectively managing communication between the client and server sides proved challenging due to my limited understanding of Next.js. While implementing TanStack Query, I encountered persistent synchronization issues between the cart icon quantity in the Navbar and the item count within the cart. These errors were likely caused by client-server data synchronization inconsistencies. To address this, I plan to deepen my knowledge of Next.js and revisit this implementation in the future.
 
-run the development server:
+### 1. Build React environment without CRA
 
-```bash
-npm run dev
-```
+My focus is on reimplementing the OOA web application using React. I aim to set up a development environment from scratch, intentionally avoiding the use of Create React App (CRA).
 
 ### 2. File structure setting
 
