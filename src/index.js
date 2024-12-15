@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import '/src/styles/general-mobile-centric.css';
 import '/src/styles/style-addnew-page.css';
 import '/src/styles/style-products-all-page.css';
+import '/src/styles/style-products-new-page.css';
 import '/src/styles/style-products-detail-page.css';
 import '/src/styles/style-cart-page.css';
 import '/src/styles/style-admin-dashboard.css';
@@ -18,6 +19,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import ProtectedRoute from './routes/ProtectedRoute';
 import ProductDetailPage from './pages/products/ProductDetailPage';
 import { PUBLIC_URL } from './constants/deploy-constants';
+import NewArrivalPage from './pages/products/NewArrivalPage';
 
 if (process.env.NODE_ENV !== 'production') {
 	console.log('Looks like we are in development mode!');
@@ -34,6 +36,10 @@ ReactDOM.createRoot(root).render(
 					<Route
 						path='products/all'
 						element={<AllProductsPage />}
+					/>
+					<Route
+						path='products/new'
+						element={<NewArrivalPage />}
 					/>
 					<Route
 						path='products/:id'

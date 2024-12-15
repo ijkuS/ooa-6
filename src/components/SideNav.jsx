@@ -21,7 +21,11 @@ export default function SideNav() {
 						<AiOutlineClose />
 					</button>
 				</li>
-				<li>New Arrivals</li>
+				<li>
+					<Link className='button' to='/products/new'>
+						New Arrivals
+					</Link>
+				</li>
 				<li>
 					<Link className='button' to='/products/all'>
 						All Products

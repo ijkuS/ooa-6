@@ -100,6 +100,7 @@ a:hover {
 /* -- General UI - button --------------------------------------------------- */
 
 [class*='button'] {
+	color: var(--color-neutral-grey-900);
 	border: none;
 	background-color: transparent;
 }
@@ -184,6 +185,7 @@ nav.menu__container .navbar-menu ul {
 	gap: 1rem;
 }
 nav.menu__container .sidemenu.button {
+	color: var(--color-neutral-grey-900);
 	font-size: 1.5rem;
 	padding-top: 6px;
 }
@@ -259,14 +261,20 @@ nav.menu__container .cart-badge {
 	/* border: none;
 	background-color: transparent; */
 }
+.side-nav .auth-area {
+	padding-bottom: 2rem;
+}
+
 .side-nav .button.special {
 	font-size: 1rem;
+	color: var(--color-accent);
 	border: none;
 	background-color: transparent;
 }
 .side-nav .button.icon {
 	font-size: 1.2rem;
 }
+
 /* -- Banner --------------------------------------------------- */
 .landing-banner {
 	width: 100%;

@@ -1,3 +1,6 @@
+.cart__page-container .sub-wrapper {
+	margin-top: 0;
+}
 /* -- CartItem ------------------------------------------------ */
 
 .cart__page-container .cart-item__wrapper {
@@ -9,11 +12,13 @@
 }
 .cart__page-container .cart-item__wrapper .image__holder {
 	width: 30%;
-	min-width: 100px;
+	min-width: 120px;
+	height: 150px;
 }
 
 .cart__page-container .text__holder {
 	padding-top: 0;
+	padding-bottom: 0;
 }
 
 .cart__page-container .text__holder .product-title {
@@ -33,6 +38,11 @@
 	display: flex;
 	gap: 0.5rem;
 	align-items: center;
+}
+.cart__page-container .quantity__part [class^='button'] {
+	font-size: 1rem;
+	align-items: center;
+	padding-top: 0.25rem;
 }
 .cart__page-container .button-delete {
 	display: flex;
