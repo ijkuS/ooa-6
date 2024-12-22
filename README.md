@@ -251,6 +251,8 @@ Effectively managing communication between the client and server sides proved ch
 
 My focus is on reimplementing the OOA web application using React. I aim to set up a development environment from scratch, intentionally avoiding the use of Create React App (CRA).
 
+[Build React environment without CRA](https://github.com/ijkuS/ooa-6?tab=readme-ov-file#basic-interaction-planning:~:text=README.react%2Djs%2Denv%2Dsetting.md)
+
 ### 2. File structure setting
 
 Details: [Basic interaction planning](#basic-interaction-planning)
@@ -507,11 +509,6 @@ snippets.code-snippets
 		"body": ["className="],
 		"description": "Adding className"
 	}
-	// "ClassName": {
-	//     "prefix": "cn",
-	//     "body": ["className={styles.$1}"],
-	//     "description": "Adding className"
-	// }
 }
 ```
 
